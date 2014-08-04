@@ -1,4 +1,4 @@
-package com.aquent.mojo.continuous_delivery;
+package com.aquent.mojo.delivery;
 
 /*
  * The MIT License
