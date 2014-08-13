@@ -19,6 +19,17 @@
     <mavenVersion>2.2.1</mavenVersion>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>plugins</id>
+      <url>http://repo.aquent.int:8080/archiva/repository/plugins/</url>
+    </repository>
+    <snapshotRepository>
+      <id>plugins</id>
+      <url>http://repo.aquent.int:8080/archiva/repository/plugins/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
