@@ -50,7 +50,8 @@ public class DependencyManifestMojo extends AbstractMojo {
             for (Artifact artifact : artifacts) {
                 String path = artifact.getFile().getPath();
                 if (!path.startsWith(basedir)) {
-                    throw new MojoExecutionException("Invalid path for local repository: " + path);
+                    getLog().warn("Skipping artifact with invalid local repository path: " + path);
+                    continue;
                 }
                 path = path.substring(basedir.length());
                 while (path.startsWith(File.separator)) {
