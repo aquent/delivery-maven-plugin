@@ -52,6 +52,8 @@ import org.apache.maven.project.MavenProject;
  *   [propertyPrefix].minorVersion
  *   [propertyPrefix].incrementalVersion
  * </pre>
+ *
+ * Each property is zero if no remote version is found.
  */
 @Mojo(name = "remote-version", defaultPhase = LifecyclePhase.VALIDATE)
 public class RemoteVersionMojo extends AbstractMojo {
@@ -96,6 +98,10 @@ public class RemoteVersionMojo extends AbstractMojo {
 
     @SuppressWarnings("unchecked")
     public void execute() {
+        defineVersionProperty("version", 0);
+        defineVersionProperty("majorVersion", 0);
+        defineVersionProperty("minorVersion", 0);
+        defineVersionProperty("incrementalVersion", 0);
         try {
             Artifact artifact = artifactFactory.createArtifact(project.getGroupId(), project.getArtifactId(), "", "", "");
             RepositoryMetadata metadata = new ArtifactRepositoryMetadata(artifact);
